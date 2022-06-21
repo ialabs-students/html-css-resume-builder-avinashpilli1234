@@ -134,6 +134,20 @@ div .col-md-2 {
             }
 
     </style> 
+    <script>
+        function handelOnSubmitEvent(e) {
+
+                e.preventDefault();
+
+                var fdata = new FormData(document.getElementById("regForm"));
+
+                window.localStorage.setItem("formDate", JSON.stringify(Object.fromEntries(fdata)));
+
+                window.location.href = "file:///C:/Users/avinash.p/Desktop/htmldemo/Resume-Preview.html";
+               
+            }
+    </script>
+
     </head>
 <body> 
     <nav class="navbar navbar-expand-sm bg-dark">
@@ -237,12 +251,12 @@ div .col-md-2 {
                 <h2>Build you resume here!</h2>
             </center>
 
-            <form style="margin: 40px 40px 10px 50px;">
+            <form id="regForm" onsubmit="handelOnSubmitEvent(event)" style="margin: 40px 40px 10px 50px;">
                 <div class="row ml-1 mb-2 mt-2">
                     <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <img class="card-img-top" src="coffeemug.jpg" style="width: 290px;height: 242px;">
+                        <img class="card-img-top" src="profile_pic.png" style="width: 290px;height: 242px;">
                         <button style="font-size:14px">Upload Picture <i class="fa fa-edit"></i></button>
                     </div>
                     
@@ -278,12 +292,12 @@ div .col-md-2 {
                   </div>
       
                   <div class="form-group row">
-                    <label for="dob" class="col-sm-2 col-form-label">DOB</label>
+                    <label for="web" class="col-sm-2 col-form-label">Website</label>
                     <div class="col-sm-4">
-                      <input type="date" class="form-control" id="dob" name="dob">
+                      <input type="email" class="form-control" id="web" name="web">
                       <!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"> -->
                     </div>
-                    <label for="gender" class="col-sm-2 form-label">Gender</label>
+                    <!-- <label for="gender" class="col-sm-2 form-label">Gender</label>
                     <div class="col-sm-4">
                       <select class="form-select form-select-lg" disable name="gender" id="gender">
                         <option value="">Select</option>
@@ -291,8 +305,12 @@ div .col-md-2 {
                         <option>Female</option>
                         <option>Other</option>
                       </select>
-                      <!-- <input type="text" class="form-control" id="gender" name="gender"> -->
-                    </div> 
+                    </div>  -->
+                    <label for="des" class="col-sm-2 col-form-label">Designation</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="designation" name="designation">
+                      <!-- <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"> -->
+                    </div>
                   </div>
             </div>
             </div>
@@ -310,49 +328,64 @@ div .col-md-2 {
                     </thead>
                     <tr>
                         <td> <label> Post Graduation: </label> </td>
-                        <td> <input type="text" name="university1" placeholder="Enter School/University"> </td>
-                        <td> <input type="number" name="yearofpassing1" placeholder="Enter Year of Passing"> </td>
-                        <td> <input type="number" name="percentage1" placeholder="Enter Percentage/CGPA"> </td>
+                        <td> <input type="text" name="university1" id="university1" placeholder="Enter School/University"> </td>
+                        <td> <input type="number" name="yearofpassing1" id="yearofpassing1" placeholder="Enter Year of Passing"> </td>
+                        <td> <input type="number" name="percentage1" id="percentage1" placeholder="Enter Percentage/CGPA"> </td>
                     </tr>
                     <tr>
                         <td> <label> Graduation: </label> </td>
-                        <td> <input type="text" name="university2" placeholder="Enter School/University"> </td>
-                        <td> <input type="number" name="yearofpassing2" placeholder="Enter Year of Passing"> </td>
-                        <td> <input type="number" name="percentage2" placeholder="Enter Percentage/CGPA"> </td>
+                        <td> <input type="text" name="university2" id="university2" placeholder="Enter School/University"> </td>
+                        <td> <input type="number" name="yearofpassing2" id="yearofpassing2" placeholder="Enter Year of Passing"> </td>
+                        <td> <input type="number" name="percentage2" id="percentage2" placeholder="Enter Percentage/CGPA"> </td>
                     </tr>
                     <tr>
                         <td> <label> Intermidate: </label> </td>
-                        <td> <input type="text" name="university3" placeholder="Enter School/University"> </td>
-                        <td> <input type="number" name="yearofpassing3" placeholder="Enter Year of Passing"> </td>
-                        <td> <input type="number" name="percentage3" placeholder="Enter Percentage/CGPA"> </td>
+                        <td> <input type="text" name="university3" id="university3" placeholder="Enter School/University"> </td>
+                        <td> <input type="number" name="yearofpassing3" id="yearofpassing3" placeholder="Enter Year of Passing"> </td>
+                        <td> <input type="number" name="percentage3" id="percentage3" placeholder="Enter Percentage/CGPA"> </td>
                     </tr>
                     <tr>
                         <td> <label> High School: </label> </td>
-                        <td> <input type="text" name="university4" placeholder="Enter School/University"> </td>
-                        <td> <input type="number" name="yearofpassing4" placeholder="Enter Year of Passing"> </td>
-                        <td> <input type="number" name="percentage4" placeholder="Enter Percentage/CGPA"> </td>
+                        <td> <input type="text" name="university4" id="university4" placeholder="Enter School/University"> </td>
+                        <td> <input type="number" name="yearofpassing4" id="yearofpassing4" placeholder="Enter Year of Passing"> </td>
+                        <td> <input type="number" name="percentage4" id="percentage4" placeholder="Enter Percentage/CGPA"> </td>
                     </tr>
 
                 </table>
 
-                <h3>Enter Experience:</h3>
+                <h3>Experience Details</h3>
                 <table width="1000">
                     <thead>
                         <tr>
+                            <th> Designation </th>
                             <th> Organization </th>
                             <th> Joining Date</th>
                             <th> Releaving Date </th>
                         </tr>
                     </thead>
                     <tr>
-                        <td> <input type="text" name="organization1" placeholder="Enter Organization"> </td>
-                        <td> <input type="date" name="doj1" placeholder="Enter Joining Date"> </td>
-                        <td> <input type="date" name="dor1" placeholder="Enter Releaving Date"> </td>
+                        <td> <input type="text" name="Designation1" id="Designation1" placeholder="Enter Designation"> </td>
+                        <td> <input type="text" name="organization1" id="organization1" placeholder="Enter Organization"> </td>
+                        <td> <input type="date" name="doj1" id="doj1" placeholder="Enter Joining Date"> </td>
+                        <td> <input type="date" name="dor1" id="dor1" placeholder="Enter Releaving Date"> </td>
                     </tr>
                     <tr>
-                        <td> <input type="text" name="organization2" placeholder="Enter Organization"> </td>
-                        <td> <input type="date" name="doj2" placeholder="Enter Joining Date"> </td>
-                        <td> <input type="date" name="dor2" placeholder="Enter Releaving Date"> </td>
+                        <td> <input type="text" name="Designation2" id="Designation2" placeholder="Enter Designation"> </td>
+                        <td> <input type="text" name="organization2" id="organization2" placeholder="Enter Organization"> </td>
+                        <td> <input type="date" name="doj2" id="doj2" placeholder="Enter Joining Date"> </td>
+                        <td> <input type="date" name="dor2" id="dor2" placeholder="Enter Releaving Date"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input type="text" name="Designation3" id="Designation3" placeholder="Enter Designation"> </td>
+                        <td> <input type="text" name="organization3" id="organization3" placeholder="Enter Organization"> </td>
+                        <td> <input type="date" name="doj3" id="doj3" placeholder="Enter Joining Date"> </td>
+                        <td> <input type="date" name="dor3" id="dor3" placeholder="Enter Releaving Date"> </td>
+                    </tr>
+                    <tr>
+                        <td> <input type="text" name="Designation4" id="Designation4" placeholder="Enter Designation"> </td>
+                        <td> <input type="text" name="organization4" id="organization4" placeholder="Enter Organization"> </td>
+                        <td> <input type="date" name="doj4" id="doj4" placeholder="Enter Joining Date"> </td>
+                        <td> <input type="date" name="dor4" id="dor4" placeholder="Enter Releaving Date"> </td>
                     </tr>
 
                 </table>
@@ -367,35 +400,35 @@ div .col-md-2 {
                         </tr>
                     </thead>
                     <tr>
-                        <td> <input type="text" name="tech1" placeholder="Enter Technology"> </td>
-                        <td> <input type="text" name="version1" placeholder="Enter Version Worked On"> </td>
-                        <td> <select name="lastworkedon1">
+                        <td> <input type="text" name="tech1" id="tech1" placeholder="Enter Technology"> </td>
+                        <td> <input type="text" name="version1" id="version1" placeholder="Enter Version Worked On"> </td>
+                        <td> <select name="lastworkedon1" id="lastworkedon1">
                                 <option value="0">-select- </option>
                                 <option value="1">Last Month </option>
                                 <option value="2">Within 6 months </option>
                                 <option value="3">Before 6 Months </option>
                             </select>
                         </td>
-                        <td> <input type="number" max="10" name="rate1" placeholder="Rate yourself out of 10"> </td>
+                        <td> <input type="number" max="10" name="rate1" id="rate1" placeholder="Rate yourself out of 10"> </td>
                     </tr>
                     <tr>
-                        <td> <input type="text" name="tech2" placeholder="Enter Technology"> </td>
-                        <td> <input type="text" name="version2" placeholder="Enter Version Worked On"> </td>
-                        <td> <select name="lastworkedon2">
+                        <td> <input type="text" name="tech2" id="tech2" placeholder="Enter Technology"> </td>
+                        <td> <input type="text" name="version2" id="version2" placeholder="Enter Version Worked On"> </td>
+                        <td> <select name="lastworkedon2" id="lastworkedon2">
                                 <option value="0">-select- </option>
                                 <option value="1">Last Month </option>
                                 <option value="2">Within 6 months </option>
                                 <option value="3">Before 6 Months </option>
                             </select>
                         </td>
-                        <td> <input type="number" max="10" name="rate2" placeholder="Rate yourself out of 10"> </td>
+                        <td> <input type="number" max="10" name="rate2" id="rate2" placeholder="Rate yourself out of 10"> </td>
                     </tr>
 
                 </table>
                 <h3>Describe Yourself:</h3>
-                <textarea name="description" width="1000" cols="180" rows="5" height="1000" placeholder="Enter you wishdom"></textarea>
+                <textarea name="description" id="description" width="1000" cols="180" rows="5" height="1000" placeholder="Enter you wishdom"></textarea>
                 <h3>Declaration:</h3>
-                <textarea name="description" width="1000" height="1000" cols="180" rows="5" placeholder="Enter you wishdom"></textarea>
+                <textarea name="decleration" id="decleration" width="1000" height="1000" cols="180" rows="5" placeholder="Enter you wishdom"></textarea>
                 <center>
                     <button class="button2" type="reset" style="border-radius: 0.25rem;">Reset</button>
                     <button class="button1" type="submit" style="border-radius: 0.25rem;">Submit</button>
